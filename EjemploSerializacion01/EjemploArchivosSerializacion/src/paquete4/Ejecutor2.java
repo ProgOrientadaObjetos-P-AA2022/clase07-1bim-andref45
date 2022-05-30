@@ -12,7 +12,7 @@ public class Ejecutor2 {
 
         // nombre del archivo
         String nombreArchivo = "data/profesores.data";
-        String cedula_buscar = "11112";
+        String cedula_buscar = "1111";
         Profesor profesor_buscar;
         LecturaArchivoSecuencial lectura = 
                 new LecturaArchivoSecuencial(nombreArchivo);

@@ -24,7 +24,7 @@ public class Ejecutor {
 
         LecturaArchivoSecuencial lectura
                 = new LecturaArchivoSecuencial(nombreArchivo);
-        lectura.establecerListaCalificaciones();
+        lectura.establecerHospital();
         System.out.println(lectura);
     }
 }
