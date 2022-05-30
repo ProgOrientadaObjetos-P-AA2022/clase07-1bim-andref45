@@ -4,7 +4,6 @@ public class Ejecutor {
 
     public static void main(String[] args) {
 
-        // nombre del archivo
         String nombreArchivo = "hospital.data";
 
         Hospital h1 = new Hospital("Santa María", 75, 20000);
@@ -17,9 +16,7 @@ public class Ejecutor {
                 = new EscrituraArchivoSecuencial(nombreArchivo);
 
         for (int i = 0; i < lista.length; i++) {
-            // establecer el valor del atributo registro
             archivo.establecerRegistro(lista[i]);
-            // establecer en el archivo el atributo del registro
             archivo.establecerSalida();
         }
 

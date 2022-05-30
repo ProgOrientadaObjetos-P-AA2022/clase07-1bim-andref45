@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paquete5;
 
 import java.io.FileOutputStream;
@@ -13,37 +8,31 @@ import java.util.ArrayList;
 public class EscrituraArchivoSecuencial {
 
     private String nombreArchivo;
-    private ObjectOutputStream salida; // envía los datos a un archivo
+    private ObjectOutputStream salida;
     private Hospital registro;
     private ArrayList<Hospital> lista;
 
     public EscrituraArchivoSecuencial(String nombreArc) {
         nombreArchivo = nombreArc;
-        establecerLista(); // obtener los valores (objetos)
-        // que tiene el archivo.
-        // System.out.println(obtenerListaProfesores().size());
-        try // abre el archivo
-        {
+        establecerLista();
+        try {
             salida = new ObjectOutputStream(
                     new FileOutputStream(nombreArchivo));
-            // proceso para ingresar nuevamente los valores del archivo
             if (obtenerLista().size() > 0) {
                 for (int i = 0; i < obtenerLista().size(); i++) {
                     establecerRegistro(obtenerLista().get(i));
                     establecerSalida();
                 }
             }
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al abrir el archivo.");
-        } // fin de catch
+        }
     }
 
     public void establecerNombreArchivo(String n) {
         nombreArchivo = n;
     }
 
-    // agrega registros al archivo
     public void establecerRegistro(Hospital p) {
         registro = p;
     }
@@ -56,8 +45,6 @@ public class EscrituraArchivoSecuencial {
         }
     }
 
-    // en el atributo listaProfesores obtenemos los registros 
-    // del archivo
     public void establecerLista() {
         LecturaArchivoSecuencial l = new LecturaArchivoSecuencial(obtenerNombreArchivo());
         l.establecerListaCalificaciones();
@@ -77,16 +64,13 @@ public class EscrituraArchivoSecuencial {
     }
 
     public void cerrarArchivo() {
-        try // cierra el archivo
-        {
+        try {
             if (salida != null) {
                 salida.close();
             }
-        } // fin de try
-        catch (IOException ioException) {
+        } catch (IOException ioException) {
             System.err.println("Error al cerrar el archivo.");
 
-        } // fin de catch
+        }
     }
-
 }
